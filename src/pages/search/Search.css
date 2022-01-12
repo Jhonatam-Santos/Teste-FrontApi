@@ -92,10 +92,10 @@
   button span {
     position: absolute;
     top: 68px;
-    left: 43px;
+    left: 40px;
     display: block;
-    width: 45px;
-    height: 15px;
+    width: 30px;
+    height: 20px;
     background-color: transparent;
     border-radius: 10px;
     transform: rotateZ(52deg);
