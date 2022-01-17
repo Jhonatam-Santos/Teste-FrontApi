@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -8,7 +9,7 @@ const Nav = () => {
                 <input type="checkbox" id="nav-check" />
                 
                 <div className="nav-links">
-                    <a href="#">Create Dev</a>
+                    <Link to="/addDev">Adicionar Developer</Link>
                 </div>
             </div>
         </div>
