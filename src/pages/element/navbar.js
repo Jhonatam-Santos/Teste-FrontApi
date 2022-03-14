@@ -6,10 +6,9 @@ const Nav = () => {
     return (
         <div className="NavContainer">
             <div className="nav">
-                <input type="checkbox" id="nav-check" />
                 
                 <div className="nav-links">
-                    <Link to="/addDev">Adicionar Developer</Link>
+                    <Link to="/addDev">Adicionar Dev</Link>
                 </div>
             </div>
         </div>

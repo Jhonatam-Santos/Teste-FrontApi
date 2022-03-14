@@ -7,14 +7,12 @@ const Search = () => {
     const [users, setUser] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     
-    useEffect(async () => {
-        const response = await api.get('Dev');
-        const {data} = response;
-        setUser(data);
-    }, [])
+    useEffect(() => {
+        api.get('Dev').then(response => setUser(response.data));
+    }, [setUser])
 
     function handleSearch(e) {
-        const filteredUsers = users.filter(user => user.name.includes(e.target.value)&& e.target.value != '');
+        const filteredUsers = users.filter(user => user.name.includes(e.target.value)&& e.target.value !== '');
         setFilteredUsers(filteredUsers);
     }
 
@@ -24,8 +22,7 @@ const Search = () => {
             <input onChange={(e) => handleSearch(e)} type="text" />
             <div className="users">
                 {filteredUsers.map((user) => (
-                    <p><Link to="/">{user.name}</Link></p>
-                    
+                    <p><Link to={`/profile/${user.id}`}>{user.name}</Link></p>
                 ))}
             </div>
         </div>
