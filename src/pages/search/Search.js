@@ -22,7 +22,7 @@ const Search = () => {
             <input onChange={(e) => handleSearch(e)} type="text" />
             <div className="users">
                 {filteredUsers.map((user) => (
-                    <p><Link to={`/profile/${user.id}`}>{user.name}</Link></p>
+                    <p key={user.id} ><Link to={`/profile/${user.id}`}>{user.name}</Link></p>
                 ))}
             </div>
         </div>

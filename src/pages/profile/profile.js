@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {  useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 const Profile = () => {
@@ -45,9 +46,8 @@ const Profile = () => {
         }
        
         loadRepo();
-    }, [])
 
-    console.log(repos);
+    }, [])
 
     return (
         <>
@@ -65,7 +65,6 @@ const Profile = () => {
                     <li>following {following}</li>
                     <li>stars {stars}</li>
                 </ul>
-                <br />
                 <span>{organization}</span>
                 <br />
                 <span>{location}</span>
@@ -80,14 +79,19 @@ const Profile = () => {
             <div className="repo">
                 <ul>
                     {repos.map(repo => (
-                        <li className="repo-item">
+                        <li key={repo.id} className="repo-item">
                             <strong>{repo.repo_name}</strong>
                             <br />
                             <span>{repo.text}</span>
                             <br />
                             <span>{repo.repo_stars}</span>
+                            <br />
+                            <button><Link to={`/updateRepo/${repo.id}/${id}`}>Update</Link></button>
                         </li>
                     ))}
+                        <li className="repo-item">
+                        <Link to={`/addRepo/${id}`}><button>New Repository</button></Link>
+                        </li>
                 </ul>
             </div>
         </div>
